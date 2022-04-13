@@ -1,4 +1,14 @@
-<% @books.each do |book| %>
-  <h2><%= link_to book.title, book_path(book) %></h2>
+<h1 class="current-category"><%= params[:category] %></h1>
+<% if @books.count == 0 %>
+  <h1>Nie ma obecnie żadnych książek z tego gatunku</h1>
+<% else %>
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-md-3">
+        <a href="/books/<%= book.id %>">
+          <%= image_tag book.book_img.variant(resize_to_limit: [250, 350]), class: "book" %>
+        </a>
+      </div>
+    <% end %>
+  </div>
 <% end %>
-<%= link_to "Dodaj książkę", new_book_path %>
