@@ -27,6 +27,7 @@
     </div>
   </div>
 </div>
+<div class="controlbuttons">
 <div class="links btn-group">
   <%= link_to "Powrót", root_path, class: "btn btn-custom" %>
   <% if user_signed_in? %>
@@ -35,6 +36,7 @@
       <%= link_to 'Usuń książkę', book_path(@book), method: :delete, data: { confirm: "Jesteś pewien?" }, class: "btn btn-custom" %>
     <% end %>
   <% end %>
+</div>
 </div>
 <script>
     $('.review-rating').raty({
